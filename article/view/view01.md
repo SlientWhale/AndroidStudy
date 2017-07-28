@@ -1,12 +1,16 @@
 tag：Android自定义View~      tag：Android自定义控件~
 
-- [1.0.0、View的结构](#1.0.0、View的结构)    
-- [1.0.1、View绘制流程](#1.0.1、View绘制流程)
-    - [树的绘制](#树的绘制)
+- 1.0.0、View的结构     
+    - [小结](#小结)
+- 1.0.1、View绘制流程 
+    - [树的绘制](#树的绘制) 
+    - [节点绘制](#节点绘制)
+          
+   
 
 **本内容只是从概念上进行解释，未深入源码进行探究，部分内容对很多朋友来说熟悉简单，可以省略跳过**
 
-## 1.0.0、View的结构（我是谁）
+## 1.0.0、View的结构
 官方说明   [UI概览](https://developer.android.google.cn/guide/topics/ui/overview.html)  
 > Android 应用中的所有用户界面元素都是使用 View 和 ViewGroup 对象构建而成。      
 
@@ -31,14 +35,15 @@ tag：Android自定义View~      tag：Android自定义控件~
 - 每一个用户界面都是由ViewGroup和View以树的结构形式构建起来，而且根节点必须为ViewGroup。
 
 ## 1.0.1、View绘制流程
-- #### 树的绘制
-    从上面的描述我们可以知道View是以树状的结构进行数据的组织，所以在这个过程中View的计算和绘制，都是由根节点*ViewRoot*调用`performTraversals()`发起，自上而下触发对下一级子View对自身的绘制，直至到最底层view完成对自身的绘制,然后将计算结果返回上一层进行绘制。
+#### 树的绘制   
+从上面的描述我们可以知道View是以树状的结构进行数据的组织，所以在这个过程中View的计算和绘制，都是由根节点*ViewRoot*调用`performTraversals()`发起，自上而下触发对下一级子View对自身的绘制，直至到最底层view完成对自身的绘制,然后将计算结果返回上一层进行绘制。
 ![View树的绘制，图片来自《公共技术点之 View 绘制流程》，作者：lightSky](https://raw.githubusercontent.com/android-cn/android-open-project-analysis/master/tech/viewdrawflow/image/measure_layout.png)
 
+#### 节点绘制
 
-- #### 子View绘制
   - 位置参数 [Size, padding and margins](https://developer.android.google.cn/reference/android/view/View.html#SizePaddingMargins)    
 size 是描述view的宽和高，实际是有两对参数一个
   - 
+    
 
 

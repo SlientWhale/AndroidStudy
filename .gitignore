@@ -7,12 +7,6 @@
 *.iml
 out
 gen
-.idea/AndroidStudy.iml
-.idea/compiler.xml
-.idea/copyright/
-.idea/markdown-navigator/
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
 app/libs/
 app/src/main/res/drawable/
+/.idea/

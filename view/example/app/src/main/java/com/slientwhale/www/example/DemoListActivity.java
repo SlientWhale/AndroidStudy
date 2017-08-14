@@ -2,42 +2,52 @@ package com.slientwhale.www.example;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.slientwhale.www.example.base.BaseActivity;
 import com.slientwhale.www.example.ui.ViewDemo01_paint_Activity;
-import com.slientwhale.www.example.ui.adapter.DemoListAdapter;
 import com.slientwhale.www.example.widget.BaseRecycleView;
 import com.slientwhale.www.example.widget.listener.BaseRecycleListener;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemoListActivity extends BaseActivity implements BaseRecycleListener{
 
-    private BaseRecycleView<String> recycleView;
-    private DemoListAdapter<String> adapter;
-    private String[] item;
+    private BaseRecycleView recycleView;
+    private ListAdapter<String> adapter;
+    private List<String> item;
     private Class[] classs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new DemoListAdapter<>(this.getBaseContext());
-        recycleView.setAdapter(adapter);
         initData();
+        initView();
+    }
+
+    private void initView() {
+        recycleView = (BaseRecycleView) this.findViewById(R.id.recycle);
+        adapter = new ListAdapter<String>(this.getBaseContext());
+        adapter.addItems(item);
+        recycleView.setLayoutManager(new LinearLayoutManager(this.getBaseContext()));
+        recycleView.setAdapter(adapter);
+        adapter.setItemClickListener(this);
     }
 
     //创建项目
     private void initData() {
-        item = new String[]{"Paint 的用法"};
+        item = new ArrayList<String>();
+        item.add("Paint的用法");
         classs = new Class[]{ViewDemo01_paint_Activity.class};
-        recycleView.addItems(Arrays.asList(item));
     }
 
     @Override
     public View addContainer() {
-        recycleView = new BaseRecycleView(this.getBaseContext());
-        return recycleView;
+        View layout = LayoutInflater.from(this.getBaseContext()).inflate(R.layout.layout_recycle,null);
+        return layout;
     }
 
 

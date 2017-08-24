@@ -1,12 +1,6 @@
 tag：Android自定义View~      tag：Android自定义控件~
 
-- 1.0.0、View的结构     
-    - [小结](#小结)
-- 1.0.1、View绘制流程 
-    - [树的绘制](#树的绘制) 
-    - [节点绘制](#节点绘制)
-          
-    
+[toc]
 
 **本内容只是从概念上进行解释，未深入源码进行探究，部分内容对很多朋友来说熟悉简单，可以省略跳过**
 
@@ -43,7 +37,4 @@ tag：Android自定义View~      tag：Android自定义控件~
 
   - 位置参数 [Size, padding and margins](https://developer.android.google.cn/reference/android/view/View.html#SizePaddingMargins)    
 size 是描述view的宽和高，实际是有两对参数一个
-  - 
-    
-
-
+  -
